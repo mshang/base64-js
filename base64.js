@@ -60,13 +60,6 @@ base64.settings = { // defaults
  * of plaintext. Any possible JS string can be encoded.
  */
 
-base64.char64_to_num = function (c) {
-	if (c == this.settings.pad) return -1;
-	var n = base64.char_set.indexOf(c);
-	if (n == -1) throw "Not base 64.";
-	return n;
-}
-
 base64.encode = function (str) {
 	this.char_set = 
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
