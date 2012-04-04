@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+	<title>Test page for base64.js</title>
+	<script type="text/javascript" src="base64.js"></script>
+</head>
+<body>
+	<h1>Test page for base64.js</h1>
+	<span id="test-span"></span>
+	
+	<script type="text/javascript">
+	var test_span = document.getElementById("test-span");
+	
+	function add_text(str) {
+		test_span.appendChild(document.createTextNode(str));
+	}
+	
+	function br() {
+		test_span.appendChild(document.createElement("br"));
+	}
+	
+	function encode_decode_test(str) {
+		add_text(str);
+		add_text("   ");
+		add_text(base64.encode(str));
+		add_text("   ");
+		add_text(base64.decode(base64.encode(str)));
+		br();
+	}
+	
+	function print_settings() {
+		test_span.appendChild(document.createTextNode(JSON.stringify(base64.settings)));
+		br();
+	}
+	
+	function run_test() {
+		// Tests are from http://www.madore.org/~david/misc/unitest/
+		print_settings();
+		encode_decode_test("a");
+		encode_decode_test("ab");
+		encode_decode_test("ab~");
+		encode_decode_test("السلام عليكم");
+		encode_decode_test("你好");
+		encode_decode_test("नमस्ते");
+		encode_decode_test("Привет");
+		encode_decode_test("שלום");
+		br();
+	}
+	
+	run_test();
+	base64.settings.pad = null;
+	run_test();
+	base64.settings.char62 = "-";
+	base64.settings.char63 = "_";
+	base64.settings.pad = undefined;
+	run_test();
+	</script>
+</body>
+</html>
