@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>base64.js - base64 converter</title>
+	<script type="text/javascript" src="base64.js"></script>
+	
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25344866-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<h1>base64.js</h1>
+	Plaintext: <br />
+	<textarea id="plaintext" rows="5" cols="80">To encode to base64, type in this box. The corresponding base64 will appear instantly in the base64 box. You can also change the base64 box to get the decoded text in this box.</textarea><br /> <br />
+	base64: <br />
+	<textarea id="encoded" rows="5" cols="80"></textarea><br /> <br />
+	
+	<script type="text/javascript">
+	var plainta = document.getElementById("plaintext");
+	var encta = document.getElementById("encoded")
+	encta.value = base64.encode(plainta.value);
+	
+	plainta.onchange = 
+		plainta.onkeypress = 
+		plainta.onkeyup = 
+		plainta.onkeydown = function () {
+			encta.value = base64.encode(plainta.value);
+	};
+	
+	encta.onchange = 
+		encta.onkeypress = 
+		encta.onkeyup = 
+		encta.onkeydown = function () {
+			plainta.value = base64.decode(encta.value);
+	};
+	</script>
+</body>
