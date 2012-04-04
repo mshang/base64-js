@@ -26,6 +26,7 @@
 	<textarea id="encoded" rows="5" cols="80"></textarea><br /> <br />
 	
 	<script type="text/javascript">
+	base64.settings.ascii = true;
 	var plainta = document.getElementById("plaintext");
 	var encta = document.getElementById("encoded")
 	encta.value = base64.encode(plainta.value);
