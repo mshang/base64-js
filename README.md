@@ -1,3 +1,5 @@
+See the [demo](http://mshang.ca/base64-js/).
+
 This script encodes to and decodes from base64. It allows you to specify a few parameters:
 
 * The non-alphanumeric characters.
